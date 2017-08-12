@@ -1,3 +1,4 @@
+//1.
 function countIslands(arr){
     var counts = 0,
         N = arr.length,
@@ -42,3 +43,19 @@ var array1=[ [ 0,0,0,0,0,0,0,0,0 ],
              [ 0,0,0,0,1,1,1,0,0 ],
              [ 0,0,0,0,0,0,0,0,0 ] ];
 countIslands(array1);
+
+//2.
+function maxArraySum(arr){
+    if (arr == null || arr.length==0){
+        return 0;
+    }
+    var cur = 0,
+        max = -1000000;
+    for(var i = 0;i<arr.length;i++){
+        cur += arr[i];
+        max = max>cur?max:cur;
+        cur = cur>0?cur:0;
+    }
+    return max;
+}
+maxArraySum([1,-2,3,5,-2,6,-1]);
