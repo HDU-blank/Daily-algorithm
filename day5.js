@@ -6,23 +6,24 @@ function printMatrix(matrix){
         j = 0,
         k = 0,
         count = 1,
+        result = [],
         status = true,
         wadd = true,
         hadd = true;
     while (k<len){
         if (status){
             if (count<wlen&&wadd){
-                console.log(matrix[i][j]);
+                result.push(matrix[i][j]);
                 j++;
                 count++;
                 k++;
             }else if(count<wlen&& !wadd){
-                console.log(matrix[i][j]);
+                result.push(matrix[i][j]);
                 j--;
                 count++;
                 k++;
             }else if(wadd){
-                console.log(matrix[i][j]);
+                result.push(matrix[i][j]);
                 hlen--;
                 i++;
                 k++;
@@ -30,7 +31,7 @@ function printMatrix(matrix){
                 wadd = !wadd;
                 count = 1;
             }else{
-                console.log(matrix[i][j]);
+                result.push(matrix[i][j]);
                 hlen--;
                 i--;
                 k++;
@@ -40,17 +41,17 @@ function printMatrix(matrix){
             }
         }else{
             if (count<hlen&&hadd){
-                console.log(matrix[i][j]);
+                result.push(matrix[i][j]);
                 i++;
                 count++;
                 k++;
             }else if (count<hlen&& !hadd){
-                console.log(matrix[i][j]);
+                result.push(matrix[i][j]);
                 i--;
                 count++;
                 k++;
             }else if(hadd){
-                console.log(matrix[i][j]);
+                result.push(matrix[i][j]);
                 j--;
                 wlen--;
                 k++;
@@ -58,7 +59,7 @@ function printMatrix(matrix){
                 count = 1;
                 hadd = !hadd;
             }else{
-                console.log(matrix[i][j]);
+                result.push(matrix[i][j]);
                 j++;
                 wlen--;
                 k++;
@@ -68,6 +69,7 @@ function printMatrix(matrix){
             }
         }
     }
+    return result;
 }
 
 matrix = [[1,2,3,4],[5,6,7,8],[9,10,11,12],[13,14,15,16]];
