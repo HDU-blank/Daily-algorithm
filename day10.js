@@ -39,19 +39,22 @@ var array = [[0,1,0,1,0,0],[0,1,1,0,0,1],[1,1,1,0,1,0],[0,0,0,0,0,1]];
 maximalRectangle(array);
 
 //2、01矩阵中最大正方形面积
-function maximalSquare(arr){
+function maximalSquare(matrix){
+    if (matrix == null || matrix.length == 0 || matrix[0].length == 0){
+        return 0;
+    }
     var max = 0,
-        lenH = arr.length,
-        lenW = arr[0].length;
+        lenH = matrix.length,
+        lenW = matrix[0].length;
     for (var i = 1;i<lenH;i++){
         for (var j = 1;j<lenW;j++){
-            if (arr[i][j] == 1){
-                arr[i][j] = Math.min(arr[i-1][j],Math.min(arr[i-1][j-1],arr[i][j-1]))+1;
-                max = arr[i][j]>max?arr[i][j]:max;
+            if (matrix[i][j] == 1){
+                matrix[i][j] = Math.min(matrix[i-1][j],Math.min(matrix[i-1][j-1],matrix[i][j-1]))+1;
+                max = matrix[i][j]>max?matrix[i][j]:max;
             }
         }
     }
     return max*max;
 }
-var array = [[0,1,1,1,0,0],[0,1,1,1,0,1],[1,1,1,1,1,0],[0,0,0,0,0,1]];
+var array = [1];
 maximalSquare(array);
